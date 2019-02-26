@@ -47,6 +47,7 @@ public class Login extends AppCompatActivity {
         firebaseAuth =FirebaseAuth.getInstance();
         pDialog = new ProgressDialog(this);
 
+
         n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +91,7 @@ public class Login extends AppCompatActivity {
 
             }
         });
-        registration=findViewById(R.id.skip_login);
+        registration=findViewById(R.id.registration);
         registration.setClickable(true);
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +101,7 @@ public class Login extends AppCompatActivity {
 
             }
         });
+
 
     }
 
