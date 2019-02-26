@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Locomedics</string>
+    <string name="login_fail" />
+    <string name="msg" />
+    <string name="title_activity_home_screen">Home_screen</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="LocoMedics">Loco Medics</string>
+    <string name="welcome_msg">Welcome To Loco-Medics</string>
+    <string name="intro">When you purchase medicines on Loco-Medics, you can be assured that you will get the medicines you order. Loco-Medics has the widest range of medicines online, sourced from our trusted network of pharmacies and medical stores.</string>
+    <string name="intro1">One stop app for all your medicinal needs</string>
+    <string name="login_button">Login To Continue</string>
+    <string name="skip_login"><u>Continue without Login</u></string>
+    <string name="login_msg">Please Enter your Login Details</string>
+    <string name="login">Login</string>
+    <string name="user">New User? Sign up!</string>
 </resources>

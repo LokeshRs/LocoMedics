@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "769077241617",
+    "firebase_url": "https://lokesh-79879.firebaseio.com",
+    "project_id": "lokesh-79879",
+    "storage_bucket": "lokesh-79879.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769077241617:android:ba8395b084a1c994",
+        "android_client_info": {
+          "package_name": "com.example.locomedics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769077241617-q0to7qgf9l46qo3sqtjp8gfjug571gau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfRx2jFwydc-f_GHOJLdlpFrTwRebqBKo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
