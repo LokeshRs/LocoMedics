@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class Splash extends AppCompatActivity {
-    private static int Splash_screen=5000;
+    private static int Splash_screen=3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
