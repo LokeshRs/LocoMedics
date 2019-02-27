@@ -1,5 +1,7 @@
 package com.example.locomedics;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +17,8 @@ import android.view.MenuItem;
 
 public class Home_screen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    ClipData.Item home;
+    Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +26,15 @@ public class Home_screen extends AppCompatActivity
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //MenuItem m1 = (MenuItem)findViewById(R.id.nav_home);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(Home_screen.this,CartActivity.class));
             }
         });
 
@@ -81,9 +87,9 @@ public class Home_screen extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            startActivity(new Intent(Home_screen.this,Home_screen.class));
         } else if (id == R.id.nav_cart) {
-
+            startActivity(new Intent(Home_screen.this,CartActivity.class));
         } else if (id == R.id.categories) {
 
         } else if (id == R.id.about) {
@@ -98,4 +104,5 @@ public class Home_screen extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
