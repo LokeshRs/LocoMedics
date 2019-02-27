@@ -17,7 +17,8 @@
             android:name=".Home_screen"
             android:label="@string/title_activity_home_screen"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Login" />
+        <activity android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".Splash">
             <intent-filter>
