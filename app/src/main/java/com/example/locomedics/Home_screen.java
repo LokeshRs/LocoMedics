@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,7 @@ public class Home_screen extends AppCompatActivity
    FirebaseListAdapter firebaseListAdapter;
    TextView name;
    TextView company;
+   ImageView medic_image;
 
     ListView medic_list;
 
@@ -87,8 +90,11 @@ public class Home_screen extends AppCompatActivity
                 Medic medic = (Medic) model;
                 name = v.findViewById(R.id.name);
                 company = v.findViewById(R.id.company);
+                medic_image = v.findViewById(R.id.medic_image);
                 name.setText(medic.getMed_name());
                 company.setText("Company "+medic.getCompany());
+                String url =medic.getImage();
+                Picasso.get().load(url).into(medic_image);
             }
 
         };
