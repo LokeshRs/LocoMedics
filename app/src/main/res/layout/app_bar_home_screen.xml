@@ -21,7 +21,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_home_screen" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_home_screen" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -85,11 +87,11 @@
             android:layout_marginLeft="25dp"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginBottom="509dp"
+            android:layout_marginBottom="8dp"
             android:ems="10"
             android:hint="Search categories"
             android:inputType="none|textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/search_button"
             app:layout_constraintEnd_toStartOf="@+id/search_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -101,9 +103,7 @@
             android:layout_marginTop="176dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
             android:text="@string/search"
-            app:layout_constraintBottom_toTopOf="@+id/_dynamic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search"
             app:layout_constraintTop_toTopOf="parent" />
@@ -111,7 +111,7 @@
         <ListView
             android:id="@+id/medic_list"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="470dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp"
@@ -119,8 +119,10 @@
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_button" />
+            app:layout_constraintTop_toBottomOf="@+id/search_button"
+            app:layout_constraintVertical_bias="1.0" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>

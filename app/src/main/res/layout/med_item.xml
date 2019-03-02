@@ -5,24 +5,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/card"
-    app:cardCornerRadius="3dp"
-    
+    app:cardCornerRadius="5dp"
     app:contentPadding="5dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    >
 
     <ImageView
         android:id="@+id/medic_image"
-        android:layout_width="129dp"
-        android:layout_height="116dp"
-        android:layout_marginLeft="10dp"
+        android:layout_width="94dp"
+        android:layout_height="92dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="5dp" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="15dp"
         android:text="TextView"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -31,8 +31,8 @@
     android:id="@+id/company"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="150dp"
-    android:layout_marginTop="80dp"
+    android:layout_marginLeft="115dp"
+    android:layout_marginTop="58dp"
     android:text="TextView"
     android:textSize="20sp"
     android:textStyle="italic" />

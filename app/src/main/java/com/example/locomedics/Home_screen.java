@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -87,12 +88,12 @@ public class Home_screen extends AppCompatActivity
             @Override
             protected void populateView(@NonNull View v, @NonNull Object model, int position) {
 
-                Medic medic = (Medic) model;
+                medic = (Medic) model;
                 name = v.findViewById(R.id.name);
                 company = v.findViewById(R.id.company);
                 medic_image = v.findViewById(R.id.medic_image);
                 name.setText(medic.getMed_name());
-                company.setText("Company "+medic.getCompany());
+                company.setText("Company: "+medic.getCompany());
                 String url =medic.getImage();
                 Picasso.get().load(url).into(medic_image);
             }
@@ -100,6 +101,18 @@ public class Home_screen extends AppCompatActivity
         };
 
         medic_list.setAdapter(firebaseListAdapter);
+        medic_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(Home_screen.this,DialogBox.class);
+                intent.putExtra("name",medic.getMed_name());
+                intent.putExtra("company",medic.getCompany());
+                intent.putExtra("description",medic.getMed_discription());
+                intent.putExtra("generic_name",medic.getMed_genericname());
+                intent.putExtra("image",medic.getImage());
+                startActivity(intent);
+            }
+        });
     }
 
 
