@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -29,7 +31,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-//import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +40,12 @@ public class Home_screen extends AppCompatActivity
     FirebaseDatabase firebaseDatabase;
     Button search;
     Medic medic;
-   FirebaseListAdapter firebaseListAdapter;
-   TextView name;
-   TextView company;
-   ImageView medic_image;
+    FirebaseListAdapter firebaseListAdapter;
+    FirebaseListAdapter firebaseListAdapter1;
+    TextView name;
+    TextView company;
+    ImageView medic_image;
+    DatabaseReference ref;
 
     ListView medic_list;
 
@@ -59,13 +62,6 @@ public class Home_screen extends AppCompatActivity
                 startActivity(new Intent(Home_screen.this, CartActivity.class));
             }
         });
-        search = findViewById(R.id.search_button);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Home_screen.this, Retrieve.class));
-            }
-        });
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -73,11 +69,16 @@ public class Home_screen extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar);
         medic_list = findViewById(R.id.medic_list);
+        ref=FirebaseDatabase.getInstance().getReference();
+
+
+    }
+    protected void onStart(){
+        super.onStart();
         Query query = FirebaseDatabase.getInstance().getReference();
         FirebaseListOptions<Medic> options = new FirebaseListOptions.Builder<Medic>()
                 .setLayout(R.layout.med_item)
@@ -93,13 +94,37 @@ public class Home_screen extends AppCompatActivity
                 company = v.findViewById(R.id.company);
                 medic_image = v.findViewById(R.id.medic_image);
                 name.setText(medic.getMed_name());
-                company.setText("Company "+medic.getCompany());
-                String url =medic.getImage();
+                company.setText("Company " + medic.getCompany());
+                String url = medic.getImage();
                 Picasso.get().load(url).into(medic_image);
             }
 
         };
 
+        medic_list.setAdapter(firebaseListAdapter);
+    }
+
+    private void firebasearch(String search){
+        Query firebasesearchquery=ref.orderByChild("Med_name").startAt(search).endAt(search+"\uf8ff");
+        FirebaseListOptions<Medic>firebaseListOptions=new FirebaseListOptions.Builder<Medic>()
+                .setLayout(R.layout.med_item)
+                .setQuery(firebasesearchquery, Medic.class)
+                .setLifecycleOwner(this)
+                .build();
+        firebaseListAdapter=new FirebaseListAdapter(firebaseListOptions) {
+            @Override
+            protected void populateView(@NonNull View v, @NonNull Object model, int position) {
+                Medic medic = (Medic) model;
+                name = v.findViewById(R.id.name);
+                company = v.findViewById(R.id.company);
+                medic_image = v.findViewById(R.id.medic_image);
+                name.setText(medic.getMed_name());
+                company.setText("Company "+medic.getCompany());
+                String url =medic.getImage();
+                Picasso.get().load(url).into(medic_image);
+
+            }
+        };
         medic_list.setAdapter(firebaseListAdapter);
     }
 
@@ -118,7 +143,23 @@ public class Home_screen extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home_screen, menu);
-        return true;
+        MenuItem item=menu.findItem(R.id.action_search);
+        SearchView searchView=(SearchView) MenuItemCompat.getActionView(item);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                firebasearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                firebasearch(newText);
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -129,7 +170,7 @@ public class Home_screen extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_setting) {
             return true;
         }
 
