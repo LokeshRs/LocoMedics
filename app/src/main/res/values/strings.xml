@@ -18,4 +18,5 @@
     <string name="login_msg">Please Enter your Login Details</string>
     <string name="login">Login</string>
     <string name="user">New User? Sign up!</string>
+    <string name="search">Search</string>
 </resources>
