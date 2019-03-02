@@ -69,15 +69,14 @@
             android:layout_marginTop="67dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="37dp"
             android:src="@drawable/splash_image"
-            app:layout_constraintBottom_toTopOf="@+id/search"
+            app:layout_constraintBottom_toBottomOf="@+id/title"
             app:layout_constraintEnd_toStartOf="@+id/title"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
             tools:srcCompat="@tools:sample/avatars" />
+
 
         <EditText
             android:id="@+id/search"
@@ -108,12 +107,14 @@
             app:layout_constraintStart_toEndOf="@+id/search"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <ListView
             android:id="@+id/medic_list"
             android:layout_width="0dp"
             android:layout_height="470dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
@@ -121,8 +122,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+
             app:layout_constraintTop_toBottomOf="@+id/search_button"
             app:layout_constraintVertical_bias="1.0" />
+
+            app:layout_constraintTop_toBottomOf="@+id/title" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>
