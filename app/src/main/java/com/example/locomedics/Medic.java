@@ -8,15 +8,17 @@ public class Medic  {
     private String Med_genericname;
     private String Med_id;
     private String Med_name;
+    private String Image;
     public Medic() {
     }
 
-    public Medic(String company, String med_discription, String med_genericname, String med_id, String med_name) {
+    public Medic(String company, String med_discription, String med_genericname, String med_id, String med_name, String image) {
         Company = company;
         Med_discription = med_discription;
         Med_genericname = med_genericname;
         Med_id = med_id;
         Med_name = med_name;
+        Image =image;
     }
 
     public String getCompany() {
@@ -57,5 +59,13 @@ public class Medic  {
 
     public void setMed_name(String med_name) {
         Med_name = med_name;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 }
